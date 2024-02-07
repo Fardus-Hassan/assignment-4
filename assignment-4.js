@@ -48,12 +48,16 @@ function deleteInvalids(array){
     for(const item of array){
 
         if(typeof item === 'number'){
-            numbersOfArray.push(item);
+
+            if(isNaN(item)===false){
+                numbersOfArray.push(item);
+            }
+            
         }
 
     }
     return numbersOfArray;
-
 }
 
-console.log(deleteInvalids(['1', {num:2} , NaN ]));
+// console.log(deleteInvalids([1 , null, undefined, 18, -19, NaN, "12", [1, 2], { ob: "lala" }]));
+
