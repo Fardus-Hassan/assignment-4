@@ -14,7 +14,7 @@ function calculateMoney(ticketSale) {
     return perDaySavings;
 }
 
-// console.log(calculateMoney(-1));
+// console.log(calculateMoney(1055));
 
 
 function checkName(name) {
@@ -24,7 +24,6 @@ function checkName(name) {
     }
 
     const lastLettersOfGoodNames = ['A', 'y', 'i', 'e', 'o', 'u', 'w'];
-
     for (const word of lastLettersOfGoodNames) {
 
         if (name[name.length - 1].toLowerCase() === word.toLowerCase()) {
@@ -44,7 +43,6 @@ function deleteInvalids(array) {
     }
 
     let numbersOfArray = [];
-
     for (const item of array) {
 
         if (typeof item === 'number') {
@@ -63,20 +61,16 @@ function deleteInvalids(array) {
 
 function password(obj) {
 
-    if (!('name' in obj) || !('birthYear' in obj) || !('siteName' in obj)) {
-        return 'invalid';
-    }
-    else if ((String(obj['birthYear']).length !== 4)) {
+    if (!('name' in obj) || !('birthYear' in obj) || !('siteName' in obj) || (String(obj['birthYear']).length !== 4)) {
         return 'invalid';
     }
 
-    const siteNameOfObj = obj['siteName'];
-    const capitalize = siteNameOfObj[0].toUpperCase() + siteNameOfObj.slice(1).toLowerCase();
+    const capitalize = obj['siteName'][0].toUpperCase() + obj['siteName'].slice(1).toLowerCase();
     const result = capitalize + '#' + obj['name'] + '@' + obj['birthYear'];
     return result;
 }
 
-// console.log(password({ name: 'rahat' , birthYear: 2002, siteName: 'faCebooK' }));
+// console.log(password({ name: 'kolimuddin' , birthYear: 1999 , siteName: 'google' }));
 
 function monthlySavings(arr, livingCost) {
 
@@ -105,4 +99,4 @@ function monthlySavings(arr, livingCost) {
     }
 }
 
-// console.log(monthlySavings([ 3000 , 3000 , 3000 ] , 5400));
+// console.log(monthlySavings([ 3000 , 3000 , 3000 ],5400));
